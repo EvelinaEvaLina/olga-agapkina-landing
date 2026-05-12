@@ -13,9 +13,9 @@
     --bg-alt: #EFECE8;
     --bg-final: #D9D4CC;
     --text: #2B2B2B;
-    --text-secondary: #3a3a3a;
-    --text-muted: #444444;
-    --text-light: #555555;
+    --text-secondary: #1c1c1c;
+    --text-muted: #252525;
+    --text-light: #333333;
     --accent: #A63A3A;
     --accent-dark: #8A2E2E;
     --gold: #C6A96B;
@@ -536,12 +536,13 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 72px;
     font-weight: 300;
-    color: rgba(198,169,107,0.18);
+    color: rgba(166,58,58,0.50);
     line-height: 1;
     margin-bottom: 8px;
   }
   .why-card h3 { font-size: 19px; margin-bottom: 14px; color: var(--text); }
   .why-card p { font-size: 13.5px; color: var(--text-muted); font-weight: 300; line-height: 1.75; }
+  .why-card p + p { margin-top: 10px; }
 
   /* ── FOR WHOM — horizontal auto-scroll carousel ── */
   #forwhom { background: var(--bg); padding: 100px 0; overflow: hidden; }
@@ -679,6 +680,7 @@
     border-top: 1px solid rgba(198,169,107,0.2);
     padding-top: 16px;
   }
+  .consult-body p + p { margin-top: 10px; border-top: none; padding-top: 0; }
 
   /* ── CHECKLIST ── */
   #checklist { background: var(--bg); padding: 100px 0; }
@@ -765,7 +767,7 @@
     background: radial-gradient(circle, rgba(198,169,107,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  #final .section-label { color: var(--gold); }
+  #final .section-label { color: var(--accent); font-weight: 700; }
   #final h2 { font-size: clamp(32px, 4vw, 52px); color: var(--text); margin-bottom: 16px; }
   #final h2 em { color: var(--accent); }
   #final > .container > p {
@@ -1155,17 +1157,22 @@
       <div class="why-card fade-up">
         <div class="why-num">01</div>
         <h3>Партнёрство и ответственность</h3>
-        <p>Я не даю «готовые советы сверху». Мы вместе находим решения, которые подходят именно вам. Это даёт устойчивый результат, а не временный эффект.</p>
+        <p>Я не даю «готовые советы сверху».</p>
+        <p>Мы вместе находим решения, которые подходят именно вам.</p>
+        <p>Это даёт устойчивый результат, а не временный эффект.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.15s">
         <div class="why-num">02</div>
         <h3>Вижу причину, а не проявления</h3>
-        <p>Если нет результата — всегда есть точка, где система даёт сбой. Мы её находим и выстраиваем по-другому. Работаем с корнем, а не с симптомами.</p>
+        <p>Если нет результата — всегда есть точка, где система даёт сбой.</p>
+        <p>Мы её находим и выстраиваем по-другому.</p>
+        <p>Работаем с корнем, а не с симптомами.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.3s">
         <div class="why-num">03</div>
         <h3>Ясность в действиях</h3>
-        <p>Вы начинаете понимать, что именно делать, зачем и как это влияет на результат. Это убирает хаос, снижает напряжение и даёт рост.</p>
+        <p>Вы начинаете понимать, что именно делать, зачем и как это влияет на результат.</p>
+        <p>Это убирает хаос, снижает напряжение и даёт рост.</p>
       </div>
     </div>
   </div>
@@ -1259,7 +1266,9 @@
           </div>
         </div>
         <div class="consult-body">
-          <p>Поймёте, где именно теряется результат. Чёткая картина того, что происходит на самом деле — без иллюзий и без осуждения. Это уже само по себе снимает внутреннее напряжение.</p>
+          <p>Поймёте, где именно теряется результат.</p>
+          <p>Чёткая картина того, что происходит на самом деле — без иллюзий и без осуждения.</p>
+          <p>Это уже само по себе снимает внутреннее напряжение.</p>
         </div>
       </div>
 
@@ -1272,7 +1281,9 @@
           </div>
         </div>
         <div class="consult-body">
-          <p>Увидите скрытые ограничения, которые влияют на ваши решения и действия. То, что обычно не замечается — станет очевидным. Именно здесь начинается настоящий сдвиг.</p>
+          <p>Увидите скрытые ограничения, которые влияют на ваши решения и действия.</p>
+          <p>То, что обычно не замечается — станет очевидным.</p>
+          <p>Именно здесь начинается настоящий сдвиг.</p>
         </div>
       </div>
 
@@ -1285,7 +1296,8 @@
           </div>
         </div>
         <div class="consult-body">
-          <p>Конкретные следующие шаги — без перегруза и лишней теории. Вы уйдёте с пониманием того, что делать уже сейчас, чтобы начать расти.</p>
+          <p>Конкретные следующие шаги — без перегруза и лишней теории.</p>
+          <p>Вы уйдёте с пониманием того, что делать уже сейчас, чтобы начать расти.</p>
         </div>
       </div>
 
