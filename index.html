@@ -11,7 +11,11 @@
   :root {
     --bg: #F7F5F2;
     --bg-alt: #EFECE8;
+    --bg-final: #D9D4CC;
     --text: #2B2B2B;
+    --text-secondary: #3a3a3a;
+    --text-muted: #444444;
+    --text-light: #555555;
     --accent: #A63A3A;
     --accent-dark: #8A2E2E;
     --gold: #C6A96B;
@@ -23,7 +27,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -68,11 +71,7 @@
   }
   .nav-logo span { color: var(--accent); }
 
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a {
     font-size: 13px;
     font-weight: 500;
@@ -120,20 +119,18 @@
   }
   .burger span {
     display: block;
-    width: 24px;
-    height: 2px;
+    width: 24px; height: 2px;
     background: var(--text);
     border-radius: 2px;
     transition: .3s;
   }
 
-  /* ── SECTIONS ── */
+  /* ── SHARED ── */
   section { padding: 100px 0; }
   .container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
 
   .gold-line {
-    width: 60px;
-    height: 1px;
+    width: 60px; height: 1px;
     background: var(--gold);
     margin: 0 auto 20px;
   }
@@ -148,107 +145,20 @@
     margin-bottom: 10px;
   }
 
-  /* ── HERO ── */
-  #hero {
-    padding-top: 130px;
-    padding-bottom: 80px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: var(--bg);
-    position: relative;
-    overflow: hidden;
+  .section-head {
+    text-align: center;
+    margin-bottom: 64px;
   }
-  #hero::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(198,169,107,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .hero-text {}
-  .hero-overline {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .hero-overline::before {
-    content: '';
-    width: 40px; height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .hero-h1 {
-    font-size: clamp(38px, 4.5vw, 58px);
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-  .hero-h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: 17px;
-    color: #5a5a5a;
+  .section-head h2 {
+    font-size: clamp(32px, 3.5vw, 46px);
     margin-bottom: 16px;
+  }
+  .section-head p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
     font-weight: 300;
-    line-height: 1.7;
-  }
-
-  .hero-divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, var(--gold), transparent);
-    margin: 28px 0;
-  }
-
-  .hero-points {
-    list-style: none;
-    margin-bottom: 40px;
-  }
-  .hero-points li {
-    font-size: 14px;
-    color: #5a5a5a;
-    padding: 6px 0;
-    padding-left: 20px;
-    position: relative;
-    font-weight: 400;
-  }
-  .hero-points li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
   }
 
   .btn-primary {
@@ -292,9 +202,100 @@
     transform: scale(1.03);
   }
 
-  .hero-photo-wrap {
+  /* ── HERO ── */
+  #hero {
+    padding-top: 130px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
     position: relative;
+    overflow: hidden;
   }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,169,107,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-overline {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-overline::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .hero-h1 {
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .hero-h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin: 28px 0;
+  }
+
+  .hero-points {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+  .hero-points li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-weight: 400;
+  }
+  .hero-points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  .hero-photo-wrap { position: relative; }
   .hero-photo-frame {
     position: relative;
     border-radius: 20px;
@@ -339,16 +340,13 @@
   }
   .hero-badge-text {
     font-size: 12px;
-    color: #6a6a6a;
+    color: var(--text-muted);
     margin-top: 4px;
     font-weight: 400;
   }
 
   /* ── ABOUT ── */
-  #about {
-    background: var(--bg-alt);
-    padding: 100px 0;
-  }
+  #about { background: var(--bg-alt); padding: 100px 0; }
 
   .about-grid {
     display: grid;
@@ -357,9 +355,7 @@
     align-items: center;
   }
 
-  .about-photo {
-    position: relative;
-  }
+  .about-photo { position: relative; }
   .about-photo img {
     width: 100%;
     height: 600px;
@@ -386,16 +382,13 @@
 
   .about-intro {
     font-size: 16px;
-    color: #5a5a5a;
+    color: var(--text-secondary);
     margin-bottom: 28px;
     font-weight: 300;
     line-height: 1.8;
   }
 
-  .about-list {
-    list-style: none;
-    margin-bottom: 36px;
-  }
+  .about-list { list-style: none; margin-bottom: 36px; }
   .about-list li {
     display: flex;
     gap: 14px;
@@ -414,12 +407,22 @@
     color: var(--gold);
   }
 
-  .about-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 28px;
+  /* highlight words in about list */
+  .hw {
+    color: var(--accent);
+    font-weight: 700;
+    font-style: italic;
   }
+  .highlight-phrase {
+    display: inline;
+    background: rgba(198,169,107,0.18);
+    border-left: 3px solid var(--gold);
+    padding: 3px 10px 3px 8px;
+    border-radius: 0 6px 6px 0;
+    font-weight: 500;
+  }
+
+  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .tag {
     background: var(--bg);
     border: 1px solid rgba(198,169,107,0.5);
@@ -431,30 +434,12 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── PROBLEMS ── */
-  #problems {
-    background: var(--bg);
-    padding: 100px 0;
-  }
-  .section-head {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-  .section-head h2 {
-    font-size: clamp(32px, 3.5vw, 46px);
-    margin-bottom: 16px;
-  }
-  .section-head p {
-    font-size: 15px;
-    color: #6a6a6a;
-    max-width: 560px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
+  /* ── PROBLEMS (2×2 accordion cards) ── */
+  #problems { background: var(--bg); padding: 100px 0; }
 
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
@@ -462,41 +447,67 @@
     background: var(--bg-alt);
     border: 1px solid rgba(198,169,107,0.2);
     border-radius: var(--radius);
-    padding: 32px 28px;
     box-shadow: var(--shadow);
+    overflow: hidden;
     transition: transform .3s, box-shadow .3s;
-    cursor: default;
   }
-  .problem-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-  }
+  .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .problem-card.open { border-color: rgba(166,58,58,0.25); }
+
+  .problem-card-inner { padding: 28px 28px 0; }
+
   .problem-icon {
     width: 44px; height: 44px;
     background: var(--gold-light);
     border: 1px solid rgba(198,169,107,0.4);
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     color: var(--gold);
   }
-  .problem-card h3 {
-    font-size: 17px;
-    margin-bottom: 10px;
-    color: var(--text);
+
+  .problem-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    padding-bottom: 24px;
+    user-select: none;
   }
-  .problem-card p {
+  .problem-card-header h3 {
+    font-size: 17px;
+    color: var(--text);
+    flex: 1;
+  }
+  .problem-arrow {
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform .3s;
+  }
+  .problem-card.open .problem-arrow { transform: rotate(180deg); }
+
+  .problem-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, padding .3s ease;
+    padding: 0 28px;
+  }
+  .problem-card.open .problem-body {
+    max-height: 200px;
+    padding: 0 28px 24px;
+  }
+  .problem-body p {
     font-size: 13.5px;
-    color: #6a6a6a;
+    color: var(--text-muted);
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.75;
+    border-top: 1px solid rgba(198,169,107,0.2);
+    padding-top: 16px;
   }
 
   /* ── WHY ME ── */
-  #why {
-    background: var(--bg-alt);
-    padding: 100px 0;
-  }
+  #why { background: var(--bg-alt); padding: 100px 0; }
   .why-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -513,10 +524,7 @@
     overflow: hidden;
     transition: transform .3s, box-shadow .3s;
   }
-  .why-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-  }
+  .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
   .why-card::before {
     content: '';
     position: absolute;
@@ -532,82 +540,79 @@
     line-height: 1;
     margin-bottom: 8px;
   }
-  .why-card h3 {
-    font-size: 19px;
-    margin-bottom: 14px;
-    color: var(--text);
+  .why-card h3 { font-size: 19px; margin-bottom: 14px; color: var(--text); }
+  .why-card p { font-size: 13.5px; color: var(--text-muted); font-weight: 300; line-height: 1.75; }
+
+  /* ── FOR WHOM — horizontal auto-scroll carousel ── */
+  #forwhom { background: var(--bg); padding: 100px 0; overflow: hidden; }
+
+  .forwhom-header {
+    text-align: center;
+    margin-bottom: 56px;
   }
-  .why-card p {
-    font-size: 13.5px;
-    color: #6a6a6a;
-    font-weight: 300;
-    line-height: 1.75;
+  .forwhom-header h2 { font-size: clamp(32px,3.5vw,46px); margin-bottom: 8px; }
+
+  .carousel-viewport {
+    overflow: hidden;
+    position: relative;
+    /* fade edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .carousel-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll-carousel 28s linear infinite;
+  }
+  .carousel-viewport:hover .carousel-track { animation-play-state: paused; }
+
+  @keyframes scroll-carousel {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
-  /* ── FOR WHOM ── */
-  #forwhom {
-    background: var(--bg);
-    padding: 100px 0;
-  }
-  .forwhom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .forwhom-list {
-    list-style: none;
-  }
-  .forwhom-list li {
-    display: flex;
-    gap: 16px;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(198,169,107,0.18);
-    align-items: flex-start;
-    cursor: pointer;
-    transition: .25s;
-    border-radius: 8px;
-    padding-left: 0;
-  }
-  .forwhom-list li:last-child { border-bottom: none; }
-  .forwhom-list li:hover { padding-left: 8px; }
-  .forwhom-check {
-    width: 28px; height: 28px;
-    border: 1.5px solid var(--gold);
-    border-radius: 8px;
+  .fw-card {
+    background: var(--bg-alt);
+    border: 1px solid rgba(198,169,107,0.2);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    box-shadow: var(--shadow);
+    width: 300px;
     flex-shrink: 0;
+    transition: transform .3s, box-shadow .3s, border-color .25s;
+    cursor: default;
+  }
+  .fw-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(198,169,107,0.5);
+  }
+  .fw-check {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     color: var(--gold);
-    margin-top: 2px;
+    margin-bottom: 18px;
   }
-  .forwhom-text h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
+  .fw-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 8px;
     color: var(--text);
   }
-  .forwhom-text p {
+  .fw-card p {
     font-size: 13px;
-    color: #7a7a7a;
+    color: var(--text-muted);
     font-weight: 300;
-    line-height: 1.6;
-  }
-  .forwhom-photo img {
-    width: 100%;
-    height: 540px;
-    object-fit: cover;
-    object-position: center 20%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    display: block;
+    line-height: 1.65;
   }
 
-  /* ── CONSULTATION ── */
-  #consultation {
-    background: var(--bg-alt);
-    padding: 100px 0;
-  }
+  /* ── CONSULTATION — accordion cards ── */
+  #consultation { background: var(--bg-alt); padding: 100px 0; }
+
   .consult-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -617,15 +622,16 @@
   .consult-card {
     background: var(--bg);
     border-radius: var(--radius);
-    padding: 36px 28px;
     border: 1px solid rgba(198,169,107,0.2);
     box-shadow: var(--shadow);
-    transition: transform .3s, box-shadow .3s;
+    overflow: hidden;
+    transition: box-shadow .3s, transform .3s;
   }
-  .consult-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-  }
+  .consult-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .consult-card.open { border-color: rgba(198,169,107,0.45); }
+
+  .consult-card-top { padding: 36px 28px 0; }
+
   .consult-num {
     width: 48px; height: 48px;
     border-radius: 12px;
@@ -637,34 +643,48 @@
     font-weight: 600;
     margin-bottom: 20px;
   }
-  .consult-card h3 {
-    font-size: 18px;
-    margin-bottom: 12px;
-    color: var(--text);
+
+  .consult-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    padding-bottom: 28px;
+    user-select: none;
   }
-  .consult-card p {
+  .consult-card-header h3 { font-size: 18px; color: var(--text); flex: 1; }
+  .consult-arrow {
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform .3s;
+  }
+  .consult-card.open .consult-arrow { transform: rotate(180deg); }
+
+  .consult-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease, padding .3s ease;
+    padding: 0 28px;
+  }
+  .consult-card.open .consult-body {
+    max-height: 220px;
+    padding: 0 28px 28px;
+  }
+  .consult-body p {
     font-size: 13.5px;
-    color: #6a6a6a;
+    color: var(--text-muted);
     font-weight: 300;
     line-height: 1.75;
+    border-top: 1px solid rgba(198,169,107,0.2);
+    padding-top: 16px;
   }
 
-  /* ── CHECKLIST / ACCORDION ── */
-  #checklist {
-    background: var(--bg);
-    padding: 100px 0;
-  }
-  .checklist-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  .checklist-intro {
-    font-size: 16px;
-    color: #5a5a5a;
-    margin-bottom: 36px;
-    font-weight: 300;
-    text-align: center;
-  }
+  /* ── CHECKLIST ── */
+  #checklist { background: var(--bg); padding: 100px 0; }
+
+  .checklist-wrap { max-width: 760px; margin: 0 auto; }
+
   .check-item {
     border: 1px solid rgba(198,169,107,0.25);
     border-radius: var(--radius);
@@ -675,6 +695,7 @@
   }
   .check-item:hover { box-shadow: var(--shadow); }
   .check-item.active { border-color: rgba(166,58,58,0.3); }
+
   .check-header {
     display: flex;
     align-items: center;
@@ -691,28 +712,17 @@
     display: flex; align-items: center; justify-content: center;
     transition: .25s;
   }
-  .check-item.active .check-box {
-    background: var(--accent);
-    border-color: var(--accent);
-  }
+  .check-item.active .check-box { background: var(--accent); border-color: var(--accent); }
   .check-box svg { opacity: 0; transition: opacity .2s; }
   .check-item.active .check-box svg { opacity: 1; }
-  .check-label {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text);
-    flex: 1;
-  }
-  .check-arrow {
-    color: var(--gold);
-    transition: transform .3s;
-  }
+  .check-label { font-size: 15px; font-weight: 400; color: var(--text); flex: 1; }
+  .check-arrow { color: var(--gold); transition: transform .3s; }
   .check-item.open .check-arrow { transform: rotate(180deg); }
   .check-body {
     display: none;
     padding: 0 24px 20px 64px;
     font-size: 13.5px;
-    color: #6a6a6a;
+    color: var(--text-muted);
     font-weight: 300;
     line-height: 1.7;
   }
@@ -726,12 +736,7 @@
     border: 1px solid rgba(198,169,107,0.35);
     border-radius: var(--radius);
   }
-  .checklist-result p {
-    font-size: 15px;
-    color: var(--text);
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
+  .checklist-result p { font-size: 15px; color: var(--text); margin-bottom: 20px; font-weight: 400; }
   .result-count {
     font-family: 'Cormorant Garamond', serif;
     font-size: 48px;
@@ -742,9 +747,9 @@
     margin-bottom: 8px;
   }
 
-  /* ── FINAL CTA ── */
+  /* ── FINAL CTA — light background ── */
   #final {
-    background: var(--text);
+    background: var(--bg-final);
     padding: 120px 0;
     text-align: center;
     position: relative;
@@ -757,47 +762,32 @@
     transform: translateX(-50%);
     width: 500px; height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(198,169,107,0.10) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(198,169,107,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  #final h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-  #final h2 em { color: var(--gold); }
-  #final p {
+  #final .section-label { color: var(--gold); }
+  #final h2 { font-size: clamp(32px, 4vw, 52px); color: var(--text); margin-bottom: 16px; }
+  #final h2 em { color: var(--accent); }
+  #final > .container > p {
     font-size: 16px;
-    color: rgba(255,255,255,0.65);
+    color: var(--text-secondary);
     margin-bottom: 48px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
   }
-  .final-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 24px auto;
-  }
+  .final-divider { width: 60px; height: 1px; background: var(--gold); margin: 24px auto; }
   .final-meta {
     margin-top: 28px;
     font-size: 12px;
-    color: rgba(255,255,255,0.35);
+    color: var(--text-light);
     letter-spacing: 0.1em;
   }
-  .final-meta span + span::before {
-    content: ' • ';
-  }
+  .final-meta span + span::before { content: ' • '; }
 
   /* ── SOCIAL ── */
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 40px;
-  }
+  .social-links { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
   .social-btn {
     display: flex;
     align-items: center;
@@ -810,17 +800,10 @@
     letter-spacing: 0.04em;
     transition: transform .25s, box-shadow .25s;
   }
-  .social-btn:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .social-btn:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
   .social-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
-
-  .social-vk {
-    background: #0077FF;
-    color: #fff;
-  }
-  .social-tg {
-    background: #26A5E4;
-    color: #fff;
-  }
+  .social-vk { background: #0077FF; color: #fff; }
+  .social-tg { background: #26A5E4; color: #fff; }
 
   /* ── FOOTER ── */
   footer {
@@ -828,13 +811,12 @@
     padding: 32px 40px;
     text-align: center;
     font-size: 12px;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.4);
   }
 
   /* ── MODAL ── */
   .modal-overlay {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(6px);
     z-index: 9999;
@@ -844,7 +826,6 @@
     padding: 20px;
   }
   .modal-overlay.open { display: flex; }
-
   .modal {
     background: var(--bg);
     border-radius: 20px;
@@ -865,34 +846,23 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #aaa;
+    color: #888;
     padding: 6px;
     transition: color .2s;
     border-radius: 8px;
   }
   .modal-close:hover { color: var(--text); background: rgba(0,0,0,0.06); }
   .modal-gold-line { width: 40px; height: 1px; background: var(--gold); margin-bottom: 20px; }
-  .modal h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  .modal-sub {
-    font-size: 14px;
-    color: #7a7a7a;
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
-  .form-group {
-    margin-bottom: 18px;
-  }
+  .modal h3 { font-size: 28px; margin-bottom: 8px; color: var(--text); }
+  .modal-sub { font-size: 14px; color: var(--text-light); margin-bottom: 32px; font-weight: 300; }
+  .form-group { margin-bottom: 18px; }
   .form-group label {
     display: block;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #7a7a7a;
+    color: var(--text-light);
     margin-bottom: 8px;
   }
   .form-group input,
@@ -910,17 +880,10 @@
     resize: none;
   }
   .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--accent);
-  }
-  .form-note {
-    font-size: 11px;
-    color: #aaa;
-    margin-top: 16px;
-    text-align: center;
-  }
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-note { font-size: 11px; color: #888; margin-top: 16px; text-align: center; }
 
-  /* ── MOBILE MENU PANEL ── */
+  /* ── MOBILE MENU ── */
   .mobile-menu {
     position: fixed;
     top: 68px; left: 0; right: 0;
@@ -950,22 +913,27 @@
     transform: translateY(40px);
     transition: opacity .7s ease, transform .7s ease;
   }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-photo-frame img { height: 420px; }
+    /* hero: photo appears BETWEEN overline/h1 and the rest of text on mobile */
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-text-top { order: 1; }
+    .hero-photo-wrap { order: 2; margin: 28px 0; }
+    .hero-text-bottom { order: 3; }
+
+    .hero-photo-frame img { height: 360px; }
     .hero-badge { left: 0; bottom: 20px; }
+
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .about-photo img { height: 420px; }
     .why-grid { grid-template-columns: 1fr; }
-    .forwhom-grid { grid-template-columns: 1fr; gap: 48px; }
-    .forwhom-photo { order: -1; }
-    .forwhom-photo img { height: 380px; }
     .consult-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-btn { display: none; }
@@ -978,13 +946,13 @@
 
   @media (max-width: 600px) {
     .hero-h1 { font-size: 34px; }
-    .hero-photo-frame img { height: 340px; }
     .hero-cta { flex-direction: column; }
     .btn-primary, .btn-ghost { width: 100%; text-align: center; }
     .cards-grid { grid-template-columns: 1fr; }
     .social-links { flex-direction: column; align-items: center; }
     .social-btn { width: 240px; justify-content: center; }
     footer { padding: 24px 20px; }
+    .fw-card { width: 260px; }
   }
 </style>
 </head>
@@ -1018,10 +986,27 @@
 <section id="hero">
   <div class="container">
     <div class="hero-grid">
-      <div class="hero-text fade-up">
+
+      <!-- TOP part of text: overline + h1 + sub (stays above photo on mobile) -->
+      <div class="hero-text-top fade-up">
         <div class="hero-overline">Бизнес-тренер · Нейрокоуч · Мастер-коуч ICI · Профайлер</div>
         <h1 class="hero-h1">Вы уже делаете<br><em>достаточно.</em></h1>
         <p class="hero-sub">Но результат не растёт так, как должен</p>
+      </div>
+
+      <!-- PHOTO (on mobile: between top-text and bottom-text) -->
+      <div class="hero-photo-wrap fade-up" style="transition-delay:.2s">
+        <div class="hero-photo-frame">
+          <img src="1b98e196-57c8-4376-811a-b76664f37f84.png" alt="Ольга Агапкина">
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-num">20+</div>
+          <div class="hero-badge-text">лет в сетевом бизнесе</div>
+        </div>
+      </div>
+
+      <!-- BOTTOM part of text: points + CTA -->
+      <div class="hero-text-bottom fade-up" style="transition-delay:.1s">
         <div class="hero-divider"></div>
         <ul class="hero-points">
           <li>Причина чаще всего — не в действиях</li>
@@ -1033,15 +1018,7 @@
           <a href="#about" class="btn-ghost">Узнать подробнее</a>
         </div>
       </div>
-      <div class="hero-photo-wrap fade-up" style="transition-delay:.2s">
-        <div class="hero-photo-frame">
-          <img src="1b98e196-57c8-4376-811a-b76664f37f84.png" alt="Ольга Агапкина">
-        </div>
-        <div class="hero-badge">
-          <div class="hero-badge-num">20+</div>
-          <div class="hero-badge-text">лет в сетевом бизнесе</div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1064,19 +1041,19 @@
         <ul class="about-list">
           <li>
             <svg class="about-list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Знаю, как строится структура и почему не растут лидеры
+            <span><span class="hw">Знаю,</span> как строится структура и почему не растут лидеры</span>
           </li>
           <li>
             <svg class="about-list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Понимаю, где «ломаются» новички и что создаёт иллюзию движения
+            <span><span class="hw">Понимаю,</span> где «ломаются» новички и что создаёт иллюзию движения</span>
           </li>
           <li>
             <svg class="about-list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Соединяю системный подход в бизнесе и глубокое понимание человека
+            <span><span class="hw">Соединяю</span> системный подход в бизнесе и глубокое понимание человека</span>
           </li>
           <li>
             <svg class="about-list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Именно это становится точкой роста для каждого клиента
+            <span class="highlight-phrase">Именно это становится точкой роста для каждого клиента</span>
           </li>
         </ul>
         <div class="about-tags">
@@ -1091,44 +1068,77 @@
   </div>
 </section>
 
-<!-- ══ PROBLEMS ══ -->
+<!-- ══ PROBLEMS (2×2, accordion) ══ -->
 <section id="problems">
   <div class="container">
     <div class="section-head fade-up">
       <div class="section-label">Почему ко мне приходят</div>
       <div class="gold-line"></div>
       <h2>Узнаёте себя?</h2>
-      <p>Ситуации, с которыми чаще всего обращаются</p>
+      <p>Нажмите на заголовок карточки — и узнаете больше</p>
     </div>
     <div class="cards-grid">
-      <div class="problem-card fade-up">
-        <div class="problem-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+
+      <div class="problem-card fade-up" onclick="toggleProblem(this)">
+        <div class="problem-card-inner">
+          <div class="problem-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="problem-card-header">
+            <h3>Много действий — нет роста</h3>
+            <svg class="problem-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
         </div>
-        <h3>Много действий — нет роста</h3>
-        <p>Вы работаете в полную силу, но стабильного результата не появляется. Кажется, что что-то важное ускользает.</p>
-      </div>
-      <div class="problem-card fade-up" style="transition-delay:.1s">
-        <div class="problem-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="problem-body">
+          <p>Вы работаете в полную силу, но стабильного результата не появляется. Кажется, что что-то важное ускользает. Причина чаще всего — не в недостатке усилий, а в том, куда они направлены.</p>
         </div>
-        <h3>Команда не дублирует результат</h3>
-        <p>Лидеры не растут, дубликации нет. Вы тянете всё на себе, а структура не масштабируется.</p>
       </div>
-      <div class="problem-card fade-up" style="transition-delay:.2s">
-        <div class="problem-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+
+      <div class="problem-card fade-up" style="transition-delay:.1s" onclick="toggleProblem(this)">
+        <div class="problem-card-inner">
+          <div class="problem-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="problem-card-header">
+            <h3>Команда не дублирует результат</h3>
+            <svg class="problem-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
         </div>
-        <h3>Повторяющиеся ситуации</h3>
-        <p>Одни и те же сценарии в бизнесе и жизни. Ощущение, что идёте по кругу.</p>
-      </div>
-      <div class="problem-card fade-up" style="transition-delay:.3s">
-        <div class="problem-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <div class="problem-body">
+          <p>Лидеры не растут, дубликации нет. Вы тянете всё на себе, а структура не масштабируется. Когда система не передаётся — значит, она ещё не выстроена системно.</p>
         </div>
-        <h3>«Могу больше, но не понимаю как»</h3>
-        <p>Есть внутреннее ощущение потенциала, но нет ясности — что именно менять и с чего начать.</p>
       </div>
+
+      <div class="problem-card fade-up" style="transition-delay:.2s" onclick="toggleProblem(this)">
+        <div class="problem-card-inner">
+          <div class="problem-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="problem-card-header">
+            <h3>Повторяющиеся ситуации</h3>
+            <svg class="problem-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="problem-body">
+          <p>Одни и те же сценарии в бизнесе и жизни. Ощущение, что идёте по кругу. Повторяющийся паттерн — всегда сигнал о скрытой установке, которую можно обнаружить и изменить.</p>
+        </div>
+      </div>
+
+      <div class="problem-card fade-up" style="transition-delay:.3s" onclick="toggleProblem(this)">
+        <div class="problem-card-inner">
+          <div class="problem-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="problem-card-header">
+            <h3>«Могу больше, но не понимаю как»</h3>
+            <svg class="problem-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="problem-body">
+          <p>Есть внутреннее ощущение потенциала, но нет ясности — что именно менять и с чего начать. Это самый ценный сигнал: потенциал реален, нужна только точка опоры.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1161,70 +1171,75 @@
   </div>
 </section>
 
-<!-- ══ FOR WHOM ══ -->
+<!-- ══ FOR WHOM — horizontal auto-scroll carousel ══ -->
 <section id="forwhom">
   <div class="container">
-    <div class="forwhom-grid">
-      <div class="fade-up">
-        <div class="section-label">Кому это подойдёт</div>
-        <div class="gold-line left"></div>
-        <h2 style="margin-bottom:36px">Для вас,<br>если вы...</h2>
-        <ul class="forwhom-list">
-          <li>
-            <div class="forwhom-check">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="forwhom-text">
-              <h4>Сетевой предприниматель</h4>
-              <p>«Застряли» в доходе и хотите найти реальную точку роста</p>
-            </div>
-          </li>
-          <li>
-            <div class="forwhom-check">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="forwhom-text">
-              <h4>Лидер без дубликации</h4>
-              <p>Команда не растёт или результаты не воспроизводятся</p>
-            </div>
-          </li>
-          <li>
-            <div class="forwhom-check">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="forwhom-text">
-              <h4>Много делаете — мало видите</h4>
-              <p>Усилия не соответствуют результату, и непонятно почему</p>
-            </div>
-          </li>
-          <li>
-            <div class="forwhom-check">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="forwhom-text">
-              <h4>Есть внутренние блоки</h4>
-              <p>Сомнения, выгорание или ощущение «стеклянного потолка»</p>
-            </div>
-          </li>
-          <li>
-            <div class="forwhom-check">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div class="forwhom-text">
-              <h4>Хотите понимать людей</h4>
-              <p>Управлять коммуникацией и выстраивать более эффективные отношения в команде</p>
-            </div>
-          </li>
-        </ul>
+    <div class="forwhom-header fade-up">
+      <div class="section-label">Кому это подойдёт</div>
+      <div class="gold-line"></div>
+      <h2>Для вас, если вы...</h2>
+    </div>
+  </div>
+
+  <div class="carousel-viewport fade-up" style="transition-delay:.15s">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- set 1 -->
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Сетевой предприниматель</h4>
+        <p>«Застряли» в доходе и хотите найти реальную точку роста</p>
       </div>
-      <div class="forwhom-photo fade-up" style="transition-delay:.2s">
-        <img src="a2b966a5-d24e-4653-b35b-5a016fef3757.png" alt="Ольга Агапкина на выступлении">
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Лидер без дубликации</h4>
+        <p>Команда не растёт или результаты не воспроизводятся</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Много делаете — мало видите</h4>
+        <p>Усилия не соответствуют результату, и непонятно почему</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Есть внутренние блоки</h4>
+        <p>Сомнения, выгорание или ощущение «стеклянного потолка»</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Хотите понимать людей</h4>
+        <p>Управлять коммуникацией и выстраивать эффективные отношения в команде</p>
+      </div>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Сетевой предприниматель</h4>
+        <p>«Застряли» в доходе и хотите найти реальную точку роста</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Лидер без дубликации</h4>
+        <p>Команда не растёт или результаты не воспроизводятся</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Много делаете — мало видите</h4>
+        <p>Усилия не соответствуют результату, и непонятно почему</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Есть внутренние блоки</h4>
+        <p>Сомнения, выгорание или ощущение «стеклянного потолка»</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Хотите понимать людей</h4>
+        <p>Управлять коммуникацией и выстраивать эффективные отношения в команде</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONSULTATION ══ -->
+<!-- ══ CONSULTATION — accordion cards ══ -->
 <section id="consultation">
   <div class="container">
     <div class="section-head fade-up">
@@ -1234,27 +1249,52 @@
       <p>Если вы чувствуете, что можете больше — значит сейчас не хватает не усилий, а ясности и системы</p>
     </div>
     <div class="consult-grid">
-      <div class="consult-card fade-up">
-        <div class="consult-num">1</div>
-        <h3>Диагностика ситуации</h3>
-        <p>Поймёте, где именно теряется результат. Чёткая картина того, что происходит на самом деле — без иллюзий и без осуждения.</p>
+
+      <div class="consult-card fade-up" onclick="toggleConsult(this)">
+        <div class="consult-card-top">
+          <div class="consult-num">1</div>
+          <div class="consult-card-header">
+            <h3>Диагностика ситуации</h3>
+            <svg class="consult-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="consult-body">
+          <p>Поймёте, где именно теряется результат. Чёткая картина того, что происходит на самом деле — без иллюзий и без осуждения. Это уже само по себе снимает внутреннее напряжение.</p>
+        </div>
       </div>
-      <div class="consult-card fade-up" style="transition-delay:.15s">
-        <div class="consult-num">2</div>
-        <h3>Разбор мышления</h3>
-        <p>Увидите скрытые ограничения, которые влияют на ваши решения и действия. То, что обычно не замечается — станет очевидным.</p>
+
+      <div class="consult-card fade-up" style="transition-delay:.15s" onclick="toggleConsult(this)">
+        <div class="consult-card-top">
+          <div class="consult-num">2</div>
+          <div class="consult-card-header">
+            <h3>Разбор мышления</h3>
+            <svg class="consult-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="consult-body">
+          <p>Увидите скрытые ограничения, которые влияют на ваши решения и действия. То, что обычно не замечается — станет очевидным. Именно здесь начинается настоящий сдвиг.</p>
+        </div>
       </div>
-      <div class="consult-card fade-up" style="transition-delay:.3s">
-        <div class="consult-num">3</div>
-        <h3>Чёткое направление</h3>
-        <p>Конкретные следующие шаги — без перегруза и лишней теории. Понимание того, что делать уже сейчас, чтобы начать расти.</p>
+
+      <div class="consult-card fade-up" style="transition-delay:.3s" onclick="toggleConsult(this)">
+        <div class="consult-card-top">
+          <div class="consult-num">3</div>
+          <div class="consult-card-header">
+            <h3>Чёткое направление</h3>
+            <svg class="consult-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="consult-body">
+          <p>Конкретные следующие шаги — без перегруза и лишней теории. Вы уйдёте с пониманием того, что делать уже сейчас, чтобы начать расти.</p>
+        </div>
       </div>
+
     </div>
     <div class="fade-up" style="text-align:center; margin-top:56px; transition-delay:.2s">
       <button class="btn-primary" onclick="openModal()" style="font-size:15px; padding:18px 48px;">
         Записаться на консультацию
       </button>
-      <p style="margin-top:14px; font-size:12px; color:#aaa; letter-spacing:0.06em;">
+      <p style="margin-top:14px; font-size:12px; color:#888; letter-spacing:0.06em;">
         Безоплатно &nbsp;·&nbsp; Ограниченное количество мест &nbsp;·&nbsp; Работаю лично
       </p>
     </div>
@@ -1271,71 +1311,64 @@
       <p>Ответьте на вопросы и посмотрите на свою реальную точку</p>
     </div>
     <div class="checklist-wrap fade-up">
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Доход нестабильный или не растёт</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="check-body">Если доход колеблется или стоит на месте уже несколько месяцев — это сигнал о системном сбое. Чаще всего причина глубже, чем кажется.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Команда не дублирует действия</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="check-body">Когда лидеры не воспроизводят ваш результат — значит система не выстроена так, чтобы её можно было передать. Это решаемо.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Нет стабильного потока новых людей</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="check-body">Привлечение работает стихийно, а не системно. Это значит, что нет чёткой воронки или скриптов, которые работают без вашего личного участия в каждом шаге.</div>
+        <div class="check-body">Привлечение работает стихийно, а не системно. Нет чёткой воронки или скриптов, которые работают без вашего личного участия в каждом шаге.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Нет чёткой системы действий</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="check-body">Когда нет понимания, что именно делать каждый день, — начинается хаос и потеря энергии на бессмысленные действия.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Результат не соответствует усилиям</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="check-body">Вы выкладываетесь на 100%, но отдача не пропорциональна. Это сигнал о том, что действия правильные, а вектор — нет.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">Есть страхи, сомнения или выгорание</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="check-body">Внутренние ограничения незаметно управляют вашими решениями. Работа с ними — это не «психология», а бизнес-инструмент.</div>
       </div>
+
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-header">
-          <div class="check-box">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="check-box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
           <span class="check-label">«Я могу больше, но не получается»</span>
           <svg class="check-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
@@ -1354,7 +1387,7 @@
 <!-- ══ FINAL CTA ══ -->
 <section id="final">
   <div class="container fade-up">
-    <div class="section-label" style="color:var(--gold)">Сделайте шаг</div>
+    <div class="section-label">Сделайте шаг</div>
     <div class="final-divider"></div>
     <h2>Вы можете продолжать<br>пробовать <em>сами.</em></h2>
     <p>Или за одну встречу увидеть то,<br>что не замечали месяцами</p>
@@ -1368,17 +1401,11 @@
     </p>
     <div class="social-links" style="margin-top:48px">
       <a href="https://vk.com/olga_agapkina" target="_blank" rel="noopener" class="social-btn social-vk">
-        <!-- VK official icon -->
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.9-1.743-.9-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.271.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.491-.085.745-.576.745z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.9-1.743-.9-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.271.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.491-.085.745-.576.745z"/></svg>
         ВКонтакте
       </a>
       <a href="https://t.me/olga_agapkina" target="_blank" rel="noopener" class="social-btn social-tg">
-        <!-- Telegram official icon -->
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         Telegram
       </a>
     </div>
@@ -1419,12 +1446,12 @@
         <p class="form-note">Безоплатно · Ограниченное количество мест · Работаю лично</p>
       </form>
     </div>
-    <div id="modalSuccess" style="display:none; text-align:center; padding: 20px 0;">
+    <div id="modalSuccess" style="display:none; text-align:center; padding:20px 0;">
       <div style="width:64px;height:64px;background:rgba(166,58,58,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A63A3A" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h3 style="margin-bottom:12px">Заявка отправлена!</h3>
-      <p style="color:#7a7a7a;font-size:14px;font-weight:300;margin-bottom:28px">Я свяжусь с вами в ближайшее время для уточнения деталей.</p>
+      <p style="color:var(--text-light);font-size:14px;font-weight:300;margin-bottom:28px">Я свяжусь с вами в ближайшее время для уточнения деталей.</p>
       <button class="btn-ghost" onclick="closeModal()">Закрыть</button>
     </div>
   </div>
@@ -1432,7 +1459,7 @@
 
 <!-- ══ SCRIPTS ══ -->
 <script>
-  // Nav scroll effect
+  // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 30);
   });
@@ -1459,11 +1486,17 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   // Mobile menu
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // Problem cards accordion
+  function toggleProblem(card) {
+    card.classList.toggle('open');
   }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
+
+  // Consultation cards accordion
+  function toggleConsult(card) {
+    card.classList.toggle('open');
   }
 
   // Checklist
@@ -1471,16 +1504,12 @@
   function toggleCheck(item) {
     const wasActive = item.classList.contains('active');
     const isOpen = item.classList.contains('open');
-
-    // toggle open/closed for accordion
     item.classList.toggle('open', !isOpen);
 
-    // toggle checked state
     if (!wasActive) {
       item.classList.add('active');
       checkedCount++;
     } else if (isOpen) {
-      // only uncheck when closing
       item.classList.remove('active');
       checkedCount = Math.max(0, checkedCount - 1);
     }
@@ -1493,24 +1522,20 @@
       result.style.display = 'block';
       count.textContent = checkedCount;
       text.textContent = checkedCount >= 3
-        ? `из 7 пунктов совпало — это сигнал, что вы уже теряете рост`
-        : `из 7 пунктов совпало`;
+        ? 'из 7 пунктов совпало — это сигнал, что вы уже теряете рост'
+        : 'из 7 пунктов совпало';
     } else {
       result.style.display = 'none';
     }
   }
 
   // Scroll animations
-  const fadeEls = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
-  fadeEls.forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
 </body>
