@@ -454,7 +454,7 @@
   .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
   .problem-card.open { border-color: rgba(166,58,58,0.25); }
 
-  .problem-card-inner { padding: 28px 28px 0; }
+  .problem-card-inner { padding: 22px 28px 0; }
 
   .problem-icon {
     width: 44px; height: 44px;
@@ -474,11 +474,16 @@
     cursor: pointer;
     padding-bottom: 24px;
     user-select: none;
+    background: rgba(43,43,43,0.06);
+    margin: 0 -28px;
+    padding: 14px 28px 14px 28px;
+    border-radius: 0;
   }
   .problem-card-header h3 {
     font-size: 17px;
     color: var(--text);
     flex: 1;
+    font-weight: 600;
   }
   .problem-arrow {
     color: var(--gold);
@@ -540,7 +545,17 @@
     line-height: 1;
     margin-bottom: 8px;
   }
-  .why-card h3 { font-size: 19px; margin-bottom: 14px; color: var(--text); }
+  .why-card h3 {
+    font-size: 19px;
+    margin-bottom: 18px;
+    color: var(--text);
+    background: rgba(198,169,107,0.18);
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-left: -32px;
+    padding-left: 29px;
+  }
   .why-card p { font-size: 13.5px; color: var(--text-muted); font-weight: 400; line-height: 1.75; }
   .why-card p + p { margin-top: 10px; }
 
@@ -600,9 +615,9 @@
   .fw-card h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 19px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 8px;
-    color: var(--text);
+    color: var(--accent);
   }
   .fw-card p {
     font-size: 13px;
@@ -654,7 +669,7 @@
     padding-bottom: 28px;
     user-select: none;
   }
-  .consult-card-header h3 { font-size: 18px; color: var(--text); flex: 1; }
+  .consult-card-header h3 { font-size: 18px; color: var(--accent); flex: 1; font-weight: 600; }
   .consult-arrow {
     color: var(--gold);
     flex-shrink: 0;
