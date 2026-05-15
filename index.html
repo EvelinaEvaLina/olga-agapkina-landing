@@ -908,6 +908,50 @@
   }
   .mobile-menu a:last-child { border: none; }
 
+  /* ── CONSULTATION with photo layout ── */
+  .consultation-layout {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .consultation-photo img {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    display: block;
+  }
+  .consultation-layout .section-head { text-align: left; margin-bottom: 32px; }
+  .consultation-layout .section-head .gold-line { margin-left: 0; }
+  .consultation-layout .consult-grid { grid-template-columns: 1fr; margin-top: 0; }
+
+  /* ── FINAL with photo layout ── */
+  .final-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .final-text { text-align: left; }
+  .final-text .final-divider { margin: 24px 0; }
+  .final-text p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-weight: 400;
+    max-width: 420px;
+  }
+  .final-photo img {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: var(--shadow);
+    display: block;
+    max-height: 600px;
+  }
+
   /* ── SCROLL ANIMATIONS ── */
   .fade-up {
     opacity: 0;
@@ -934,6 +978,11 @@
 
     .why-grid { grid-template-columns: 1fr; }
     .consult-grid { grid-template-columns: 1fr; }
+    .consultation-layout { grid-template-columns: 1fr; gap: 40px; }
+    .final-layout { grid-template-columns: 1fr; gap: 40px; }
+    .final-text { text-align: center; }
+    .final-text p { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .final-text .final-divider { margin: 24px auto; }
     .nav-links { display: none; }
     .nav-btn { display: none; }
     .burger { display: flex; }
@@ -1235,13 +1284,18 @@
 <!-- ══ CONSULTATION — accordion cards ══ -->
 <section id="consultation">
   <div class="container">
-    <div class="section-head fade-up">
-      <div class="section-label">Консультация-знакомство</div>
-      <div class="gold-line"></div>
-      <h2>Что вы получите<br>на встрече</h2>
-      <p>Если вы чувствуете, что можете больше — значит сейчас не хватает не усилий, а ясности и системы</p>
-    </div>
-    <div class="consult-grid">
+    <div class="consultation-layout">
+      <div class="consultation-photo fade-up">
+        <img src="8b163baa-4cfb-4b9d-972f-ae0d2de53913 (2).png" alt="Ольга Агапкина">
+      </div>
+      <div class="consultation-content fade-up" style="transition-delay:.15s">
+        <div class="section-head">
+          <div class="section-label">Консультация-знакомство</div>
+          <div class="gold-line"></div>
+          <h2>Что вы получите<br>на встрече</h2>
+          <p>Если вы чувствуете, что можете больше — значит сейчас не хватает не усилий, а ясности и системы</p>
+        </div>
+        <div class="consult-grid">
 
       <div class="consult-card fade-up" onclick="toggleConsult(this)">
         <div class="consult-card-top">
@@ -1287,6 +1341,8 @@
         </div>
       </div>
 
+        </div>
+      </div>
     </div>
     <div class="fade-up" style="text-align:center; margin-top:56px; transition-delay:.2s">
       <button class="btn-primary" onclick="openModal()" style="font-size:15px; padding:18px 48px;">
@@ -1385,18 +1441,25 @@
 <!-- ══ FINAL CTA ══ -->
 <section id="final">
   <div class="container fade-up">
-    <div class="section-label">Сделайте шаг</div>
-    <div class="final-divider"></div>
-    <h2>Вы можете продолжать<br>пробовать <em>сами.</em></h2>
-    <p>Или за одну встречу увидеть то,<br>что не замечали месяцами</p>
-    <button class="btn-primary" onclick="openModal()" style="font-size:15px; padding:18px 52px;">
-      Записаться на консультацию-знакомство
-    </button>
-    <p class="final-meta" style="margin-top:20px">
-      <span>Безоплатно</span>
-      <span>Ограниченное количество мест</span>
-      <span>Работаю лично</span>
-    </p>
+    <div class="final-layout">
+      <div class="final-text">
+        <div class="section-label">Сделайте шаг</div>
+        <div class="final-divider"></div>
+        <h2>Вы можете продолжать<br>пробовать <em>сами.</em></h2>
+        <p>Или за одну встречу увидеть то,<br>что не замечали месяцами</p>
+        <button class="btn-primary" onclick="openModal()" style="font-size:15px; padding:18px 52px;">
+          Записаться на консультацию-знакомство
+        </button>
+        <p class="final-meta" style="margin-top:20px">
+          <span>Безоплатно</span>
+          <span>Ограниченное количество мест</span>
+          <span>Работаю лично</span>
+        </p>
+      </div>
+      <div class="final-photo">
+        <img src="a2b966a5-d24e-4653-b35b-5a016fef3757.png" alt="Ольга Агапкина — тренинг">
+      </div>
+    </div>
     <div class="social-links" style="margin-top:48px">
       <a href="https://vk.com/olga_agapkina" target="_blank" rel="noopener" class="social-btn social-vk">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-.9-1.743-.9-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.271.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.491-.085.745-.576.745z"/></svg>
@@ -1411,6 +1474,7 @@
 </section>
 
 <!-- ══ FOOTER ══ -->
+
 <footer>
   <p>© 2024 Ольга Агапкина. Бизнес-тренер, нейрокоуч, мастер-коуч ICI, профайлер.</p>
 </footer>
