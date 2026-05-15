@@ -234,8 +234,8 @@
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
+    color: #7A2020;
+    font-weight: 700;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -244,7 +244,7 @@
   .hero-overline::before {
     content: '';
     width: 40px; height: 1px;
-    background: var(--gold);
+    background: #7A2020;
     flex-shrink: 0;
   }
 
@@ -350,28 +350,11 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 80px;
+    grid-template-columns: 1fr;
+    gap: 0;
     align-items: center;
-  }
-
-  .about-photo { position: relative; }
-  .about-photo img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: var(--radius);
-    display: block;
-    box-shadow: var(--shadow);
-  }
-  .about-photo-accent {
-    position: absolute;
-    bottom: -16px; right: -16px;
-    width: 120px; height: 120px;
-    border: 1px solid var(--gold);
-    border-radius: var(--radius);
-    z-index: -1;
+    max-width: 760px;
+    margin: 0 auto;
   }
 
   .about-content h2 {
@@ -949,8 +932,6 @@
     .hero-photo-frame img { height: 360px; }
     .hero-badge { left: 0; bottom: 20px; }
 
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .about-photo img { height: 420px; }
     .why-grid { grid-template-columns: 1fr; }
     .consult-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
@@ -1015,7 +996,7 @@
       <!-- PHOTO (on mobile: between top-text and bottom-text) -->
       <div class="hero-photo-wrap fade-up" style="transition-delay:.2s">
         <div class="hero-photo-frame">
-          <img src="1b98e196-57c8-4376-811a-b76664f37f84.png" alt="Ольга Агапкина">
+          <img src="9322e622-aea8-4745-ada8-ba80ea46171e.png" alt="Ольга Агапкина">
         </div>
         <div class="hero-badge">
           <div class="hero-badge-num">20+</div>
@@ -1045,11 +1026,7 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-photo fade-up">
-        <img src="9322e622-aea8-4745-ada8-ba80ea46171e.png" alt="Ольга Агапкина">
-        <div class="about-photo-accent"></div>
-      </div>
-      <div class="about-content fade-up" style="transition-delay:.15s">
+      <div class="about-content fade-up">
         <div class="section-label">Кто я</div>
         <div class="gold-line left"></div>
         <h2>Я вижу то,<br>что обычно не видно</h2>
@@ -1074,13 +1051,6 @@
             <span class="highlight-phrase">Именно это становится точкой роста для каждого клиента</span>
           </li>
         </ul>
-        <div class="about-tags">
-          <span class="tag">Нейрокоуч</span>
-          <span class="tag">Мастер-коуч ICI</span>
-          <span class="tag">Профайлер</span>
-          <span class="tag">Бизнес-тренер</span>
-          <span class="tag">20+ лет опыта</span>
-        </div>
       </div>
     </div>
   </div>
